@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Moedas: Real, Euro e Dólar</title>
+  <style>
+    /* Estilo geral da página */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(120deg, #5D9CEC, #9CECFB);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+    /* Card principal */
+    .container {
+      background-color: #fff;
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    /* Título */
+    h1 {
+      font-size: 1.8em;
+      color: #333;
+    }
+    /* Inputs */
+    .form-group {
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #5D9CEC;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #4C84CE;
+    }
+    /* Resultado */
+    .resultado {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Moedas</h1>
+    <p>Digite os valores atuais do Euro e do Dólar, e converta suas moedas!</p>
+    
+    <!-- Formulário -->
+    <div class="form-group">
+      <label for="valorMoeda">Valor a converter:</label>
+      <input type="number" id="valorMoeda" placeholder="Digite o valor (ex: 100)">
+    </div>
+    
+    <div class="form-group">
+      <label for="taxaEuro">Cotação do Euro (R$):</label>
+      <input type="number" id="taxaEuro" placeholder="Ex: 5.50">
+    </div>
+    
+    <div class="form-group">
+      <label for="taxaDolar">Cotação do Dólar (R$):</label>
+      <input type="number" id="taxaDolar" placeholder="Ex: 4.90">
+    </div>
+    
+    <div class="form-group">
+      <label for="moeda">Converter para:</label>
+      <select id="moeda">
+        <option value="real">Real (R$)</option>
+        <option value="euro">Euro (€)</option>
+        <option value="dolar">Dólar ($)</option>
+      </select>
+    </div>
+    
+    <button onclick="converterMoeda()">Converter</button>
+    
+    <!-- Resultado -->
+    <div class="resultado" id="resultado">O resultado aparecerá aqui.</div>
+  </div>
+
+  <script>
+    function converterMoeda() {
+      // Obtendo os valores dos inputs
+      const valor = parseFloat(document.getElementById('valorMoeda').value);
+      const taxaEuro = parseFloat(document.getElementById('taxaEuro').value);
+      const taxaDolar = parseFloat(document.getElementById('taxaDolar').value);
+      const moedaDestino = document.getElementById('moeda').value;
+
+      // Elemento para exibir o resultado
+      const resultadoDiv = document.getElementById('resultado');
+
+      // Validando entradas
+      if (isNaN(valor) || valor <= 0) {
+        resultadoDiv.textContent = "Por favor, insira um valor válido para conversão.";
+        return;
+      }
+      if (isNaN(taxaEuro) || taxaEuro <= 0) {
+        resultadoDiv.textContent = "Por favor, insira a cotação válida do Euro.";
+        return;
+      }
+      if (isNaN(taxaDolar) || taxaDolar <= 0) {
+        resultadoDiv.textContent = "Por favor, insira a cotação válida do Dólar.";
+        return;
+      }
+
+      // Cálculo da conversão
+      let resultado = 0;
+      if (moedaDestino === "real") {
+        resultado = valor; // Já está em reais
+      } else if (moedaDestino === "euro") {
+        resultado = valor / taxaEuro;
+      } else if (moedaDestino === "dolar") {
+        resultado = valor / taxaDolar;
+      }
+
+      // Formatação e exibição do resultado
+      resultado = resultado.toFixed(2);
+      if (moedaDestino === "real") {
+        resultadoDiv.innerHTML = `O valor em Reais é: R$ ${resultado}`;
+      } else if (moedaDestino === "euro") {
+        resultadoDiv.innerHTML = `O valor em Euros é: € ${resultado}`;
+      } else if (moedaDestino === "dolar") {
+        resultadoDiv.innerHTML = `O valor em Dólares é: $ ${resultado}`;
+      }
+    }
+  </script>
+</body>
+</html>
