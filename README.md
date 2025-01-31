@@ -20,22 +20,30 @@ Olá pessoal, Venilton da DIO aqui! Inspirado na hype _"Natty or Not"_ do fisicu
 ### Template
 
 ```markdown
+Template
 # Título do Projeto Extremamente Aesthetic ;)
 
+Conversor de Moedas (Real, Euro e Dollar)
+
 ## 📒 Descrição
-Breve descrição do seu projeto
+O projeto criado, permite verificar valores do Dollar e do Euro, convertidos em Reais. 
 
 ## 🤖 Tecnologias Utilizadas
-Liste as IAs Generativas e outras ferramentas usadas
+AI – INNER (nesta temos acesso a diversos CHAT’s GTP
+AI – GTP-4o
+Visual Studio – para aplicar e executar os códigos fornecidos pela AI (GTP-4º)
 
 ## 🧐 Processo de Criação
-Descreva como você criou o conteúdo
+Ao solicitar na plataforma INNER, solicitei a criação conforme descrio:
+“Utilizarei o visual studio. Crie um conversor de moedas em REAL, EURO e Dollar. informarei os valores do Dolar e do Euro, na data da pesquisa. Faça um desing bonito e criativo para esta pagina de pesquisa. quero o resultado na propria tela. utilize HTML para que eu possa abrir a pagina no visual studio”.
+A plataforma INNER, direcionou para a AI GTP-4º e a mesma gerou o código a ser inserido no Visual Studio.
 
 ## 🚀 Resultados
-Apresente os resultados do seu projeto
+Este pequeno sistema, funcionou de forma eficiente. Apresentado o resulta de forma correta quando inserimos os valores atualizados do dia no Euro e no Dollar, apresentando o resultado em Reais.
 
 ## 💭 Reflexão (Opcional)
-Comente sobre o desafio de criar algo 'natty' com IA.
+A utilização de Ais, simplifica bastante nossa vida quando estamos programando. É preciso ter o cuidado quando solicitamos, com apontamentos corretos, para que a AI, nos forneça o resultado mais próximo do esperado.
+.
 ```
 
 ### Exemplos e Insigths
